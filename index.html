@@ -1,0 +1,499 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+	<nav class="bg-gray-800">
+		<div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+			<div class="relative flex items-center justify-between h-16">
+				<div class="flex items-center px-2 lg:px-0">
+					<div class="flex-shrink-0">
+						<img class="block lg:hidden h-12 w-auto" src="https://www.voore.ro/image/catalog/logo-bf.png" alt="Workflow">
+						<img class="hidden lg:block h-12 w-auto" src="https://www.voore.ro/image/catalog/logo-bf.png" alt="Workflow">
+					</div>
+					<div class="hidden lg:block lg:ml-6">
+						<div class="flex space-x-4">
+							<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+							<a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Noutăți</a>
+							<a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Țigări unică folosință</a>
+							<a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Țigări electronice</a>
+							<a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Atomizoare</a>
+						</div>
+					</div>
+				</div>
+				<div class="flex-1 flex justify-center px-2 lg:ml-6 lg:justify-end">
+					<div class="max-w-lg w-full lg:max-w-xs">
+						<label for="search" class="sr-only">Search</label>
+						<div class="relative">
+							<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+								<!-- Heroicon name: solid/search -->
+								<svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+									<path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+								</svg>
+							</div>
+							<input id="search" name="search" class="block w-full pl-10 pr-3 py-2 border border-transparent rounded-md leading-5 bg-gray-700 text-gray-300 placeholder-gray-400 focus:outline-none focus:bg-white focus:border-white focus:ring-white focus:text-gray-900 sm:text-sm" placeholder="Search" type="search">
+						</div>
+					</div>
+				</div>
+				<div class="flex lg:hidden">
+					<!-- Mobile menu button -->
+					<button onclick="toggleMobileMenu();" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+						<span class="sr-only">Open main menu</span>
+						<!--
+							Icon when menu is closed.
+	
+							Heroicon name: outline/menu
+	
+							Menu open: "hidden", Menu closed: "block"
+						-->
+						<svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+						</svg>
+						<!--
+							Icon when menu is open.
+	
+							Heroicon name: outline/x
+	
+							Menu open: "block", Menu closed: "hidden"
+						-->
+						<svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+						</svg>
+					</button>
+				</div>
+				<div class="hidden lg:block lg:ml-4">
+					<div class="flex items-center">
+						<button type="button" class="flex-shrink-0 bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+							<span class="sr-only">View notifications</span>
+							<!-- Heroicon name: outline/bell -->
+							<svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+							</svg>
+						</button>
+	
+						<!-- Profile dropdown -->
+						<div class="ml-4 relative flex-shrink-0">
+							<div>
+								<button onclick="toggleProfileInfo();" type="button" class="bg-gray-800 rounded-full flex text-sm text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+									<span class="sr-only">Open user menu</span>
+									<img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+								</button>
+							</div>
+	
+							<!--
+								Dropdown menu, show/hide based on menu state.
+	
+								Entering: "transition ease-out duration-100"
+									From: "transform opacity-0 scale-95"
+									To: "transform opacity-100 scale-100"
+								Leaving: "transition ease-in duration-75"
+									From: "transform opacity-100 scale-100"
+									To: "transform opacity-0 scale-95"
+							-->
+							<div id="profile-info" class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+								<!-- Active: "bg-gray-100", Not Active: "" -->
+								<a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
+								<a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
+								<a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<!-- Mobile menu, show/hide based on menu state. -->
+		<div class="hidden lg:hidden" id="mobile-menu">
+			<div class="px-2 pt-2 pb-3 space-y-1">
+				<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+				<a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Noutăți</a>
+				<a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Țigări unică folosință</a>
+				<a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Țigări electronice</a>
+				<a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Atomizoare</a>
+			</div>
+			<div class="pt-4 pb-3 border-t border-gray-700">
+				<div class="flex items-center px-5">
+					<div class="flex-shrink-0">
+						<img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+					</div>
+					<div class="ml-3">
+						<div class="text-base font-medium text-white">Tom Cook</div>
+						<div class="text-sm font-medium text-gray-400">tom@example.com</div>
+					</div>
+					<button type="button" class="ml-auto flex-shrink-0 bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+						<span class="sr-only">View notifications</span>
+						<!-- Heroicon name: outline/bell -->
+						<svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+						</svg>
+					</button>
+				</div>
+				<div class="mt-3 px-2 space-y-1">
+					<a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Your Profile</a>
+					<a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Settings</a>
+					<a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Sign out</a>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<!-- This example requires Tailwind CSS v2.0+ -->
+	<div class="bg-gray-800">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<!-- We've used 3xl here, but feel free to try other max-widths based on your needs -->
+			<div class="mx-auto">
+				<img class="w-full" src="https://www.voore.ro/image/cache/catalog/slideshow/slide_bf-1920x662.jpg"/>
+				<div class="flex flex-wrap items-center">
+					<div class="w-1/4 md:w-full text-center py-4 md:pt-4 md:pb-2">
+						<p class="font-bold text-white lg:text-xl">BLACKFRIDAY <span class="text-red-800">2021</span></p>
+					</div>
+					<div class="w-3/4 md:w-full py-4 md:pt-2 md:pb-4">
+						<div class="lg:hidden">
+							<label for="tabs" class="sr-only">Select a tab</label>
+							<!-- Use an "onChange" listener to redirect the user to the selected tab URL. -->
+							<select id="tabs" name="tabs" class="block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm rounded-md">
+								<option selected>Țigări electronice</option>
+					
+								<option>Atomizoare</option>
+					
+								<option>Moduri</option>
+					
+								<option>Lichid Flavor Madness</option>
+
+								<option>Lichid D.I.Y.</option>
+
+								<option>Țigări Unică Folosință</option>
+							</select>
+						</div>
+						<div class="hidden lg:block">
+							<div class="border-gray-200">
+								<nav class="-mb-px flex justify-center space-x-2" aria-label="Tabs">
+									<!-- Current: "border-red-500 text-red-600", Default: "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300" -->
+									<a href="#" class="border-red-500 text-red-800 whitespace-nowrap py-0 px-1 border-b-2 font-medium text-xs">
+										Țigări electronice
+									</a>
+					
+									<a href="#" class="border-transparent text-gray-50 hover:text-red-600 whitespace-nowrap py-0 px-1 border-b-2 font-medium text-xs">
+										Atomizoare
+									</a>
+					
+									<a href="#" class="border-transparent text-gray-50 hover:text-red-600 whitespace-nowrap py-0 px-1 border-b-2 font-medium text-xs" aria-current="page">
+										Moduri
+									</a>
+					
+									<a href="#" class="border-transparent text-gray-50 hover:text-red-600 whitespace-nowrap py-0 px-1 border-b-2 font-medium text-xs">
+										Lichid Flavor Madness
+									</a>
+
+									<a href="#" class="border-transparent text-gray-50 hover:text-red-600 whitespace-nowrap py-0 px-1 border-b-2 font-medium text-xs">
+										Lichid D.I.Y.
+									</a>
+
+									<a href="#" class="border-transparent text-gray-50 hover:text-red-600 whitespace-nowrap py-0 px-1 border-b-2 font-medium text-xs">
+										Țigări Unică Folosință
+									</a>
+								</nav>
+							</div>
+						</div>
+		
+					</div>
+				</div>
+
+				<div class="text-white">
+					<div class="max-w-7xl mx-auto py-4 px-4 overflow-hidden sm:py-8 sm:px-6 lg:px-8">
+						<div class="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8">
+							<a href="#" class="group text-sm">
+								<div class="w-full aspect-w-1 aspect-h-1 rounded-lg overflow-hidden bg-gray-100 group-hover:opacity-75">
+									<img src="https://www.voore.ro/image/cache/catalog/x-kit-incepatori-1/x-1/kit-novo-2-s-smoktech-black-armor-800x800.jpg" alt="White fabric pouch with white zipper, black zipper pull, and black elastic loop." class="w-full h-full object-center object-cover">
+								</div>
+								<h3 class="mt-4 font-medium text-gray-50">
+									Kit Smok Novo 2S
+								</h3>
+								<p class="text-gray-200 italic">
+									Black Armor
+								</p>
+								<p class="mt-2 font-medium text-gray-50">
+									130 Lei
+								</p>
+							</a>
+				
+							<a href="#" class="group text-sm">
+								<div class="w-full aspect-w-1 aspect-h-1 rounded-lg overflow-hidden bg-gray-100 group-hover:opacity-75">
+									<img src="https://www.voore.ro/image/cache/catalog/x-kit-incepatori-1/ego-pod-ast-jungle-green-350x350.jpg" alt="Front of tote bag with washed black canvas body, black straps, and tan leather handles and accents." class="w-full h-full object-center object-cover">
+								</div>
+								<h3 class="mt-4 font-medium text-gray-50">
+									Kit Joyetech eGo Pod ( AST )
+								</h3>
+								<p class="text-gray-200 italic">
+									Jungle Green
+								</p>
+								<p class="mt-2 font-medium text-gray-50">
+									90 Lei
+								</p>
+							</a>
+				
+							<a href="#" class="group text-sm">
+								<div class="w-full aspect-w-1 aspect-h-1 rounded-lg overflow-hidden bg-gray-100 group-hover:opacity-75">
+									<img src="https://www.voore.ro/image/cache/catalog/x-kit-inter-2/kit-gtx-go-80-black-350x350.jpg" alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch." class="w-full h-full object-center object-cover">
+								</div>
+								<h3 class="mt-4 font-medium text-gray-50">
+									Kit GTX Go 80 - Vaporesso 
+								</h3>
+								<p class="text-gray-200 italic">
+									Black
+								</p>
+								<p class="mt-2 font-medium text-gray-50">
+									130 Lei
+								</p>
+							</a>
+
+							<a href="#" class="group text-sm">
+								<div class="w-full aspect-w-1 aspect-h-1 rounded-lg overflow-hidden bg-gray-100 group-hover:opacity-75">
+									<img src="https://www.voore.ro/image/cache/catalog/x-kit-inter-2/kit-veego80-nevoks-charcoal-black-350x350.jpg" alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch." class="w-full h-full object-center object-cover">
+								</div>
+								<h3 class="mt-4 font-medium text-gray-50">
+									Kit Nevoks Veego80
+								</h3>
+								<p class="text-gray-200 italic">
+									Charcoal Black
+								</p>
+								<p class="mt-2 font-medium text-gray-50">
+									190 Lei
+								</p>
+							</a>
+
+							<a href="#" class="group text-sm">
+								<div class="w-full aspect-w-1 aspect-h-1 rounded-lg overflow-hidden bg-gray-100 group-hover:opacity-75">
+									<img src="https://www.voore.ro/image/cache/catalog/x-kit-incepatori-1/x-1/kit-novo-2-s-smoktech-7-color-armor-350x350.jpg" alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch." class="w-full h-full object-center object-cover">
+								</div>
+								<h3 class="mt-4 font-medium text-gray-50">
+									Kit Smok Novo 2S 
+								</h3>
+								<p class="text-gray-200 italic">
+									7 Color Armor
+								</p>
+								<p class="mt-2 font-medium text-gray-50">
+									130 Lei
+								</p>
+							</a>
+
+							<a href="#" class="group text-sm">
+								<div class="w-full aspect-w-1 aspect-h-1 rounded-lg overflow-hidden bg-gray-100 group-hover:opacity-75">
+									<img src="https://www.voore.ro/image/cache/catalog/x-kituri-avansati/kit-drag-x-pro-18650-21700-sahara-brown-350x350.jpg" alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch." class="w-full h-full object-center object-cover">
+								</div>
+								<h3 class="mt-4 font-medium text-gray-50">
+									Kit Drag X Pro 18650/21700 - Voopoo
+								</h3>
+								<p class="text-gray-200 italic">
+									Sahara Brown
+								</p>
+								<p class="mt-2 font-medium text-gray-50">
+									270 Lei
+								</p>
+							</a>
+				
+							<!-- More products... -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer class="bg-gray-800" aria-labelledby="footer-heading">
+		<h2 id="footer-heading" class="sr-only">Footer</h2>
+		<div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+			<div class="pb-8 xl:grid xl:grid-cols-4 xl:gap-8">
+				<div class="grid grid-cols-2 gap-8 xl:col-span-4">
+					<div class="md:grid md:grid-cols-2 md:gap-8">
+						<div>
+							<h3 class="font-semibold text-gray-400 tracking-wider uppercase mb-2">
+								Informații contact
+							</h3>
+							<div class="text-gray-200 text-xs">
+								<p class="font-bold mb-1">S.C. ORGANZA S.R.L. | CUI 22560777</p>
+								<p class="mb-1">Adresa: <span class="font-bold">Timisoara, Romania</span></p>
+								<p class="mb-1">Telefon: <a class="font-bold" href="tel:0771317469">0771.317.469</a></p>
+								<p class="mb-1">Program: <span class="font-bold">Luni - Vineri: 9 -17</span></p>
+								<p class="mb-1">Email: <a class="font-bold" href="mailto:comenzi@voore.ro">comenzi@voore.ro</a></p>
+							</div>
+						</div>
+						<div class="mt-12 md:mt-0">
+							<h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+								Informații
+							</h3>
+							<ul role="list" class="mt-2 space-y-1">
+								<li>
+									<a href="https://www.voore.ro/despre-noi" target="_blank" class="text-xs text-gray-300 hover:text-white">
+										Despre Noi
+									</a>
+								</li>
+	
+								<li>
+									<a href="#" target="_blank" class="text-xs text-gray-300 hover:text-white">
+										Informații Livrare
+									</a>
+								</li>
+	
+								<li>
+									<a href="#" target="_blank" class="text-xs text-gray-300 hover:text-white">
+										Magazin țigări electronice Arad
+									</a>
+								</li>
+	
+								<li>
+									<a href="#" target="_blank" class="text-xs text-gray-300 hover:text-white">
+										Magazin țigari electronice Oradea
+									</a>
+								</li>
+
+								<li>
+									<a href="#" target="_blank" class="text-xs text-gray-300 hover:text-white">
+										Magazin țigari electronice Timisoara
+									</a>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+					<div class="md:grid md:grid-cols-2 md:gap-8">
+						<div>
+							<h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+								Contul Meu
+							</h3>
+							<ul role="list" class="mt-2 space-y-1">
+								<li>
+									<a href="https://www.voore.ro/contul-meu" target="_blank" class="text-xs text-gray-300 hover:text-white">
+										Contul meu
+									</a>
+								</li>
+	
+								<li>
+									<a href="https://www.voore.ro/contul-meu/comenzi" target="_blank" class="text-xs text-gray-300 hover:text-white">
+										Istoric Comenzi
+									</a>
+								</li>
+	
+								<li>
+									<a href="https://www.voore.ro/index.php?route=account/wishlist" target="_blank" class="text-xs text-gray-300 hover:text-white">
+										Jobs
+									</a>
+								</li>
+	
+							</ul>
+						</div>
+						<div class="mt-12 md:mt-0">
+							<h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+								Extra
+							</h3>
+							<ul role="list" class="mt-4 space-y-1">
+								<li>
+									<a href="https://www.voore.ro/producatori-tigara-electronica" target="_blank" class="text-xs text-gray-300 hover:text-white">
+										Producători
+									</a>
+								</li>
+	
+								<li>
+									<a href="https://www.voore.ro/#:~:text=Producatori-,Oferte%20speciale,-Newsletter" target="_blank" class="text-xs text-gray-300 hover:text-white">
+										Oferte Speciale
+									</a>
+								</li>
+	
+								<li>
+									<a href="https://www.voore.ro/index.php?route=account/newsletter" target="_blank" class="text-xs text-gray-300 hover:text-white">
+										Newsletter
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="border-t border-gray-700 pt-8 lg:flex lg:items-center lg:justify-between xl:mt-0 mb-8">
+				<div>
+					<h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+						Subscribe to our newsletter
+					</h3>
+					<p class="mt-2 text-base text-gray-300">
+						The latest news, articles, and resources, sent to your inbox weekly.
+					</p>
+				</div>
+				<form class="mt-4 sm:flex sm:max-w-md lg:mt-0">
+					<label for="email-address" class="sr-only">Email address</label>
+					<input type="email" name="email-address" id="email-address" autocomplete="email" required class="appearance-none min-w-0 w-full bg-white border border-transparent rounded-md py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white focus:border-white focus:placeholder-gray-400 sm:max-w-xs" placeholder="Enter your email">
+					<div class="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+						<button type="submit" class="w-full bg-indigo-500 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500">
+							Subscribe
+						</button>
+					</div>
+				</form>
+			</div>
+			<div class="border-t border-gray-700 pt-8 lg:flex lg:items-center lg:justify-between xl:mt-0 w-full">
+				<div class="flex flex-wrap justify-between w-full">
+					<div class="w-full lg:w-1/4">
+						<a href="#"><img src="https://www.voore.ro/image/catalog/livrare.png" alt="livrare curier rapid"></a>
+					</div>
+					<div class="w-full lg:w-1/4">
+						<a href="#"><img src="https://www.voore.ro/image/catalog/plata-card-tigari-electronice.png" alt="plata mobilpay"></a>
+					</div>
+				</div>
+			</div>
+			<div class="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
+				<div class="flex space-x-6 md:order-2">
+					<a href="https://www.facebook.com/voore.ro" target="_blank" class="text-gray-400 hover:text-gray-300">
+						<span class="sr-only">Facebook</span>
+						<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+							<path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+						</svg>
+					</a>
+	
+	
+					<a href="https://plus.google.com/100355976041783464066" target="_blank" class="text-gray-400 hover:text-gray-300">
+						<span class="sr-only">Google+</span>
+						<svg class="w-6 h-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" id="Layer_1" viewBox="0 0 500 500"><defs></defs><title/><path class="cls-1" d="M484.85,124.74a144.17,144.17,0,0,0-2.32-25.29c-1.94-10.19-4.67-20.12-9.55-29.33A101.84,101.84,0,0,0,453.39,44a97.14,97.14,0,0,0-42.76-24.4c-14.83-4-30-4.84-45.21-4.82a.46.46,0,0,1-.09-.23H134.59c0,.08,0,.16,0,.23-8.65.16-17.32.09-25.92,1.16A123.46,123.46,0,0,0,81,22.14,97.48,97.48,0,0,0,44.25,46.26,97.15,97.15,0,0,0,19.68,89.17c-3.94,14.72-4.8,29.73-4.82,44.85L14.7,365.69v0c.28,10.45.37,21,2.13,31.36,1.87,11,4.54,21.71,9.64,31.69A101.36,101.36,0,0,0,54.77,463a91.91,91.91,0,0,0,28.31,15.35c15.12,4.88,30.72,6.75,46.55,6.84,9.88.06,19.74.31,29.62.27,71.74-.3,143.49.52,215.23-.44a169.32,169.32,0,0,0,28.23-3A95.61,95.61,0,0,0,450,459c15.78-14.08,26.43-31.3,31.24-52.09,3.15-13.59,3.93-27.38,4.07-41.21v-2.76C485.3,361.86,484.89,127.84,484.85,124.74Zm-234.62,209s-16.17,14.91-54.68,16.15c0,0-50.46,0-80.72-31.88a31.57,31.57,0,0,1-2.33-2.76c-4.59-6.1-19.34-28.08-20.39-59.78,0,0-4-32.3,18.33-64.61,0,0,20.81-27.33,49.39-36.34,0,0,26.4-7.14,50.32-3.42,0,0,28,4.35,40.08,17.08l9,8.08L233.6,201.93s-16.31-19.1-48.3-15.38c0,0-39.45,3.11-52.18,40.07,0,0-7.45,30.13.31,46.28,0,0,8.39,28.27,39.14,37.58,0,0,41,8.39,56.84-8.7,0,0,18.33-11.18,19.57-31.37H191.82l.31-34.79H287.8S299,295.89,250.23,333.78Zm157.93-69.94h-29v29H350.86v-29h-29V235.58h29v-29h28.27v29h29Z"/></svg>
+					</a>
+	
+					<a href="https://www.linkedin.com/" target="_blank" class="text-gray-400 hover:text-gray-300">
+						<span class="sr-only">Linkedin</span>
+						<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+					</a>
+				</div>
+				<p class="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
+					&copy; Voore 2021 - Toate drepturile sunt rezervate • Magazin online realizat de Webstage | ANPC | Voore Google+<br/>
+					Redesign Bogdan Mosteanu
+				</p>
+			</div>
+		</div>
+	</footer>
+	<script>
+		let profileInfo = document.getElementById('profile-info')
+		let mobileMenu = document.getElementById('mobile-menu')
+
+		function toggleProfileInfo() {
+			profileInfo.classList.toggle('hidden')
+		}
+
+		function toggleMobileMenu() {
+			mobileMenu.classList.toggle('hidden')
+		}
+	</script>
+</body>
+
+</html>
